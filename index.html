@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Moetiah Quran App — SMP Islam Moetiah</title>
+<meta name="description" content="Aplikasi manajemen setoran, presensi, dan rapor tahfidz Al-Qur'an untuk SMP Islam Moetiah.">
+<meta name="theme-color" content="#0284c7">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="tahfiz-app">
+
+  <div class="tf-sidebar-overlay" id="tf-sidebar-overlay" onclick="TF.closeSidebar()"></div>
+  <aside class="tf-sidebar tf-hide" id="tf-sidebar">
+      <div class="tf-sidebar-header">
+        <div class="tf-brand"><img src="assets/logo.png" alt="Logo" class="tf-logo-sm"> Moetiah Quran App</div>
+        <button class="tf-sidebar-close" onclick="TF.closeSidebar()" aria-label="Tutup menu">✕</button>
+      </div>
+      <nav class="tf-menu" id="tf-menu"></nav>
+  </aside>
+
+  <div class="tf-right-col">
+  <div class="tf-topbar tf-hide" id="tf-topbar">
+    <button class="tf-hamburger" onclick="TF.toggleSidebar()" aria-label="Buka menu">☰</button>
+    <div class="tf-user">
+      <span id="tf-username-label"></span>
+      <button onclick="TF.logout()">Keluar</button>
+    </div>
+  </div>
+
+    <div class="tf-login-wrap" id="tf-login-view">
+      <div class="tf-login-box">
+        <img src="assets/logo.png" alt="Logo SMP Islam Moetiah" class="tf-login-logo">
+        <h2>SMP Islam Moetiah</h2>
+        <p class="tf-app-name">Moetiah Quran App</p>
+        <div class="tf-field">
+          <label for="tf-login-username">Username</label>
+          <input id="tf-login-username" type="text" placeholder="username" autocomplete="username">
+        </div>
+        <div class="tf-field">
+          <label for="tf-login-password">Password</label>
+          <input id="tf-login-password" type="password" placeholder="••••••••" autocomplete="current-password">
+        </div>
+        <button id="tf-login-btn" class="tf-btn" onclick="TF.login()">Masuk</button>
+        <div class="tf-error tf-hide" id="tf-login-error"></div>
+      </div>
+    </div>
+
+    <div class="tf-content tf-hide" id="tf-content"></div>
+    <footer class="tf-footer">© <span id="tf-year"></span> SMP Islam Moetiah — dikembangkan oleh Abdal Ainuz Zaki, B.A.</footer>
+  </div>
+  </div>
+
+  <div id="tf-rapor-print" class="tf-rapor-print tf-hide"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="assets/script.js"></script>
+<script>
+  // Daftarkan service worker untuk kemampuan offline & install ke home screen.
+  // Kalau file service-worker.js tidak ada (mis. di lingkungan lokal tanpa
+  // HTTPS), kegagalan ini dibiarkan diam saja dan app tetap jalan normal.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
