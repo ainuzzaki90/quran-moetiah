@@ -1,7 +1,7 @@
 /* =========================================================
    GANTI URL DI BAWAH DENGAN URL WEB APP APPS SCRIPT ANDA
 ========================================================= */
-const API_URL = "https://script.google.com/macros/s/AKfycbyv6VH7UWzuj1V3mSjtF_o9dDXsWNRWIt9MsM3KTWphy-xS5Ou3737nl883-tvjuLhvCw/exec";
+const API_URL = "https://moetiah-quran-api.abdal-ainuz7.workers.dev";
 
 /* Daftar halaman awal tiap surah pada Mushaf Madinah standar (604 halaman).
    Catatan: sebagian cetakan/aplikasi bisa berbeda 1-2 halaman dari tabel ini. */
